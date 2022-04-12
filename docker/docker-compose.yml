@@ -1,0 +1,32 @@
+version: '3.7'
+services:
+  rabbitmq_node_retry_queue:
+    image: rabbitmq:3.8.6-management
+    hostname: rabbitmq_node_retry_queue
+    environment:
+      - RABBITMQ_ERLANG_COOKIE=nucleo_storm_monitoring
+      - RABBITMQ_DEFAULT_USER=${RABBITMQ_DEFAULT_USER}
+      - RABBITMQ_DEFAULT_PASS=${RABBITMQ_DEFAULT_PASS}
+      - RABBITMQ_VM_MEMORY_HIGH_WATERMARK=512MiB
+    ports:
+      - "5680:5672"
+      - "15680:15672"
+    volumes:
+      - rabbitmq_node_retry_queue_volume:/var/lib/rabbitmq
+      - "/etc/timezone:/etc/timezone:ro"
+      - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - retry_test
+    restart: on-failure
+    deploy:
+      resources:
+        limits:
+          cpus: '0.01'
+          memory: 50M
+        reservations:
+          cpus: '0.01'
+          memory: 20M
+networks:
+  retry_test:
+volumes:
+  rabbitmq_node_retry_queue_volume:
