@@ -18,3 +18,25 @@ The following guides illustrate how to use some features concretely:
 * [Building REST services with Spring](https://spring.io/guides/tutorials/bookmarks/)
 * [Messaging with RabbitMQ](https://spring.io/guides/gs/messaging-rabbitmq/)
 
+### To test the retry functionality
+
+That project is using an idea for retry message using RabbitMQ exchange TTL. The diagram bellow explain better.
+To test the functionality, execute some steps:
+
+1. Inside the project folder, access `docker` folder and execute the command `docker-compose up -d` (to undeploy, `docker-compose down`);
+2. Access the RabbitMQ client dashboard `http://localhost:15680/#/` and use the user and password from `.env` file;
+3. Execute the cURL bellow to send message and test manually the retry functionality.
+
+```shell
+curl --location --request POST 'localhost:8081/v1/api/checkout' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "personId": "12345689",
+    "paymentMethod": "DEBIT",
+    "amount": 21.90
+}'
+```
+
+Diagram:
+
+
