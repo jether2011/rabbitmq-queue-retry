@@ -39,4 +39,4 @@ curl --location --request POST 'localhost:8081/v1/api/checkout' \
 
 Diagram:
 
-
+<img src="https://raw.githubusercontent.com/jether2011/rabbitmq-queue-retry/master/docker/reliable_rabbit_queues.png" width="800"/>
