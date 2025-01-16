@@ -37,6 +37,9 @@ curl --location --request POST 'localhost:8081/v1/api/checkout' \
 }'
 ```
 
+##
+[<img src="https://api.gitsponsors.com/api/badge/img?id=480775738" height="20">](https://api.gitsponsors.com/api/badge/link?p=WhPxLm/G80cBKIJjKwzBEKdFy3xxKIphqtK+cmEcmW7AEhelFILqsTXtqWvsWz9QhdYE6QDHl4TZksiMfdH8AcK5ckpWGpCn3JlZIma/AzNT1ApACWUtDWG1wtRKzPx+iPIlWEOEWAl/lhuShAdjKg==)
+
 Diagram:
 
 <img src="https://raw.githubusercontent.com/jether2011/rabbitmq-queue-retry/master/docker/reliable_rabbit_queues.png" width="800"/>
